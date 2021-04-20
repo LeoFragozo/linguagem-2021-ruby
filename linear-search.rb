@@ -5,7 +5,7 @@ def linear_search(arr, value_search)
   arr.each.with_index do |element, index|
     if element == value_search
       return index
-    elsif element < value_search
+    elsif element > value_search
       break
     end
   end
