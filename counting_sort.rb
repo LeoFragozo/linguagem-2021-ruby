@@ -27,5 +27,4 @@ return arr
 
 end
 
-unsort_array = (7,6,4,3,2,8]
-p counting_sort(unsort_array)
+p counting_sort()
