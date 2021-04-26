@@ -1,23 +1,29 @@
-#todo debugar esse algortimo
-
 def jump_search(arr, value)
-  n = arr.size
-  i = 0
-  sqr = Math.sqrt n
-
-  while arr[sqr] <= value && sqr < n
-    i = sqr
-    sqr += Math.sqrt n
-    return 'Número encontrado no array' if sqr > n - 1
+  n = arr.size # 9
+  step = Math.sqrt(n) # 3
+  prev = 0
+  
+  while arr[[step,n].min] < value do #3,9,min (3) < 105
+    prev = step # prev = 3
+    step += Math.sqrt(n)  # step = 3 + 3 ->  6 
+    return -1 if prev >= n # 3 >= 9 (false) 
   end
-  start = i
 
-  while start < sqr
-    return x if a[x] == value
+  while arr[prev] < value do # 6 < 105
+    prev += 1  #  0 += 1
 
-    start += 1
+    return -1 if prev == [step, n].min # retorna -1 se 125 == (3,9).min = (false)
   end
-  -1
+
+  if arr[prev] == value  #se o arr[3] == 125 
+    return prev.to_i   =  #return 0_to_is
 end
 
-p jump_search([6, 14, 58, 93, 105], 23)
+  return -1
+end
+
+arr = [6, 14, 58, 93, 105,121,138,145,153]
+value = 105
+
+result = jump_search(arr, value)
+
