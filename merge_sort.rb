@@ -20,3 +20,5 @@ def merge(left, right)
     [right.first] + merge(left, right[1..right.size])
   end
 end
+
+p merge_sort([2,5,7,6,3,10,15,30,22,55,43])
