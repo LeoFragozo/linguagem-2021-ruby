@@ -1,30 +1,25 @@
-def counting_sort(arr = [5, 4, 3, 2, 1], min = 0, max = 10)
-  return 'array inválido' if min > max
+def count_sort(arr)
+  count_arr = create_count_arr(arr)
 
-  number = max - min + 1
-  count = Array.new(number,0)
-  size = arr.size
-  result = Array.new(size)
+  sort = Array.new(arr.size)
 
-  for i in 0...size
-    count[arr[i]-min]+=1
+  arr.each do |item|
+    sort[count_arr[item] - 1] = item
+    count_arr[item] -= 1
   end
 
-for i in 1...number
-  count[i]+=count[i-1]
+  sort
 end
 
-for i in 0...size
-  result[count[arr[i]-min]-1]=arr[i]
-  count[arr[i]-min]-=1
+def create_count_arr(arr)
+  count_arr = Array.new(arr.max + 1, 0)
+  arr.each { |item| count_arr[item] += 1 }
+  
+  (1..(count_arr.size - 1)).each do |i|
+    count_arr[i] += count_arr [i - 1]
+  end
+
+  count_arr
 end
 
-for i in 0...size
-  arr[i]=result[i]
-end
-
-return arr
-
-end
-
-p counting_sort()
+p count_sort([15, 25, 48, 33, 59, 82, 63, 76]).to_s
