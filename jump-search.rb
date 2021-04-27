@@ -1,30 +1,39 @@
-def jump_search(arr, value)
-  n = arr.size # 9
-  step = Math.sqrt(n) # 3
+def jump_search (array, num)
+  size = array.length
+  step = Math.sqrt(size).floor
 
   prev = 0
 
-  while arr[[step, n].min] < value # 3,9,min (3) < 105
-    prev = step # prev = 3
-    step += Math.sqrt(n) # step = 3 + 3 ->  6
-    return -1 if prev >= n # 3 >= 9 (false)
+  while array[([step,size].min)-1] < num do
+    prev = step
+
+    step += Math.sqrt(size).floor
+
+    return -1 if prev >= size
   end
 
-  while arr[prev] < value # 6 < 105
-    prev += 1 #  0 += 1
-    return -1 if prev == [step, n].min # retorna -1 se 125 == (3,9).min = (false)
+  while array[prev] < num do
+    prev += 1
+
+    return -1 if prev == [step, size].min
   end
 
-  if arr[prev] == value # se o arr[3] == 125
-    return prev.to_i   # return 0_to_is
+  if array[prev] == num
+    return prev.to_i
   end
 
-  -1
+  return -1
 end
 
-arr = [6, 14, 58, 93, 105, 121, 138, 145, 153]
-value = 105
+
+arr = [6, 14, 58, 93, 105, 121, 138, 145]
+value = 156
+
+puts "Iniciando"
 
 result = jump_search(arr, value)
-
-puts result.negative ? "Número '#{value}' Não encontrado no array" : "Número '#{value}' encontrado no index #{result}"
+if result <= -1
+  puts "Número '#{value}' Não encontrado no array"
+else
+  puts "Número '#{value}' encontrado no index #{result}"
+end
