@@ -1,1 +1,1 @@
-Projeto executado na mentoria http://desenvolvendo.me/ de Marco Castro por Leonardo Fragozo.
+Projeto executado em http://desenvolvendo.me/ por Leonardo Fragozo sob mentoria de Marco Castro.
