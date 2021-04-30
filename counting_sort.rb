@@ -14,7 +14,7 @@ end
 def create_count_arr(arr)
   count_arr = Array.new(arr.max + 1, 0)
   arr.each { |item| count_arr[item] += 1 }
-  
+
   (1..(count_arr.size - 1)).each do |i|
     count_arr[i] += count_arr [i - 1]
   end

@@ -1,17 +1,14 @@
 def missChar(phrase)
-  
   list = [false] * 26
   letters = ('a'..'z').to_a
-  
+
   phrase = phrase.downcase.split('')
 
   phrase.each do |chars|
     next if letters == ' '
 
     letter_index = letters.find_index(chars)
-    if letter_index
-      list[letter_index] = true 
-    end
+    list[letter_index] = true if letter_index
   end
 
   list.include?(false)

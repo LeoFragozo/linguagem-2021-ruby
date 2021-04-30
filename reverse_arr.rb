@@ -1,11 +1,11 @@
 def reverse_Arr(arr, n)
   size = arr.size
-  newArr = []
+  new_arr = []
 
-  newArr << arr.pop(n)
-  newArr << arr
+  new_arr << arr.pop(n)
+  new_arr << arr
 
-  newArr.flatten!
+  new_arr.flatten!
 end
 
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
